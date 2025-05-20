@@ -1,0 +1,28 @@
+@use "variables" as *;
+
+:root {
+  --background: #{$c-bg};
+  --foreground: #{$c-fg};
+
+  --gap-xs: #{$gap-xs};
+  --gap-s: #{$gap-s};
+  --gap-m: #{$gap-m};
+  --gap-l: #{$gap-l};
+  --gap-xl: #{$gap-xl};
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #{$c-bg-dark};
+    --foreground: #{$c-fg-dark};
+  }
+}
+*/
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Jersey, Pretendard, sans-serif;
+  font-size: 16px;
+}

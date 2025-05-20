@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* tailwindcss config */
+@theme {
+  /* 폰트 */
+  --font-Jersey: "Jersey";
+  --font-Pretendard: "Pretendard";
+
+  /* 여백 */
+  --spacing-xs: var(--gap-xs);
+  --spacing-s: var(--gap-s);
+  --spacing-m: var(--gap-m);
+  --spacing-l: var(--gap-l);
+  --spacing-xl: var(--gap-xl);
+
+  /* 색상 */
+}
