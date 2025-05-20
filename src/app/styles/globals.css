@@ -8,7 +8,9 @@
   --color-white: var(--c-white);
   --color-gray: var(--c-gray);
   --color-main: var(--c-main);
+  --color-point-fg: var(--c-point-fg);
   --color-point: var(--c-point);
+  --color-point-bg: var(--c-point-bg);
 
   /* 여백 */
   --spacing-xs: var(--gap-xs);
