@@ -3,9 +3,9 @@ import { CreaturesInfo } from "@/types/dto";
 import { NextResponse } from "next/server";
 
 /**
- * 몹 리스트 조회 selectAllCreatures
+ * 몹 리스트 조회
  */
-export async function GET(page = 1, cnt: number) {
+export async function selectAllCreatures(page = 1, cnt: number) {
   try {
     const startIdx = (page - 1) * cnt,
       endIdx = startIdx + cnt;
