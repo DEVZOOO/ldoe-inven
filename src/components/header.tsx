@@ -1,17 +1,17 @@
+"use client";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { SearchInput } from "./input";
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center mt-xs gap-s text-salmon">
-      <h1 className="flex">LOGO</h1>
-      <div className="w-full flex gap-xs">
-        <input type="text" className="flex-[1_0_auto]"></input>
+    <header className="flex justify-between items-center px-s py-xs bg-main text-white">
+      <div>DEVZOOO</div>
+      <div className="w-full flex justify-between max-w-[60%] gap-s">
+        <SearchInput className="gap-s flex-[1_0_auto]"></SearchInput>
         <button type="button">
-          <div>
-            <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
-          </div>
-          &nbsp;
+          <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
         </button>
       </div>
     </header>
