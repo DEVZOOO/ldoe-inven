@@ -25,26 +25,40 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="py-s">
-      <h1>지구의 마지막 날: 생존(LDOE) 인벤토리 by devzooo</h1>
-
+    <div className="my-m">
       <CtgrySection title="Creatures">
-        {loading ? (
+        {false ? (
           <div>Loading...</div>
         ) : (
           <div>
-            {creatures.map((v, i) => (
+            {[1, 2, 3, 4, 5].map((v, i) => (
               <div key={i}>
-                {i} {v}
+                Creature {i}: {v}
               </div>
             ))}
           </div>
         )}
       </CtgrySection>
 
-      <section>Weapons</section>
+      <CtgrySection title="Weapons">
+        <div>
+          {[1, 2, 3, 4, 5].map((v, i) => (
+            <div key={i}>
+              Weapon {i}: {v}
+            </div>
+          ))}
+        </div>
+      </CtgrySection>
 
-      <section>Food</section>
+      <CtgrySection title="Food">
+        <div>
+          {[1, 2, 3, 4, 5].map((v, i) => (
+            <div key={i}>
+              Food {i}: {v}
+            </div>
+          ))}
+        </div>
+      </CtgrySection>
     </div>
   );
 }

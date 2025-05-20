@@ -6,6 +6,7 @@ import "@/app/styles/common.scss";
 import "@/app/styles/globals.css";
 
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "LDOE INVEN",
@@ -19,9 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={`antialiased max-w-[480px] mx-auto px-s`}>
+      <body className={`antialiased max-w-[480px] mx-auto`}>
         <Header></Header>
-        {children}
+        <div className="px-s min-h-[84dvh]">{children}</div>
+        <Footer></Footer>
       </body>
     </html>
   );
