@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 /**
  * 몹 리스트 조회
  */
-export async function selectAllCreatures(page = 1, cnt: number) {
+async function selectAllCreatures(page = 1, cnt: number) {
   try {
     const startIdx = (page - 1) * cnt,
       endIdx = startIdx + cnt;
