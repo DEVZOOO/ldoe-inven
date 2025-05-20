@@ -9,6 +9,18 @@
   --gap-m: #{$gap-m};
   --gap-l: #{$gap-l};
   --gap-xl: #{$gap-xl};
+
+  --radius-s: #{$radius-s};
+
+  /* 색상 */
+  --c-white: #{$c-white};
+  --c-gray: #{$c-gray};
+  --c-main: #{$c-main};
+  --c-point: #{$c-point};
+
+  /* 폰트 사이즈 */
+  --fz-s: #{$fz-s};
+  --fz-m: #{$fz-m};
 }
 
 /*

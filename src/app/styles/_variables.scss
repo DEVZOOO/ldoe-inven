@@ -7,9 +7,21 @@ $c-fg: #171717;
 $c-bg-dark: #0a0a0a;
 $c-fg-dark: #ededed;
 
+$c-white: #fff;
+$c-gray: #ccc;
+
+$c-main: #37433c;
+$c-point: #1a6d66;
+
 /* 사이즈 */
-$gap-xs: 12px;
-$gap-s: 20px;
-$gap-m: 40px;
-$gap-l: 60px;
-$gap-xl: 80px;
+$gap-xs: 8px;
+$gap-s: 12px;
+$gap-m: 20px;
+$gap-l: 40px;
+$gap-xl: 60px;
+
+$radius-s: 4px;
+
+/* 폰트 사이즈 */
+$fz-s: 12px;
+$fz-m: 16px;

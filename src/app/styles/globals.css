@@ -4,9 +4,11 @@
 
 /* tailwindcss config */
 @theme {
-  /* 폰트 */
-  --font-Jersey: "Jersey";
-  --font-Pretendard: "Pretendard";
+  /* 색상 */
+  --color-white: var(--c-white);
+  --color-gray: var(--c-gray);
+  --color-main: var(--c-main);
+  --color-point: var(--c-point);
 
   /* 여백 */
   --spacing-xs: var(--gap-xs);
@@ -15,5 +17,10 @@
   --spacing-l: var(--gap-l);
   --spacing-xl: var(--gap-xl);
 
-  /* 색상 */
+  /* 폰트 */
+  --font-Jersey: "Jersey";
+  --font-Pretendard: "Pretendard";
+
+  /* 폰트사이즈 */
+  --text-s: var(--fz-s);
 }
