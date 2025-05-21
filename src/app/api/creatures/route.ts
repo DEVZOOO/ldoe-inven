@@ -8,8 +8,9 @@ import { ApiStatus } from "@/constants/status";
 /**
  * 전체 리스트 조회
  */
-export async function GET(req: NextRequest, res: NextApiResponse) {
+export async function GET(req: NextRequest) {
   let result: CommonRes<CreaturesInfo[]>;
+
   try {
     const searchParams = req.nextUrl.searchParams;
     const cnt = Number(searchParams.get("cnt")) ?? 10;
