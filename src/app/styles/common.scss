@@ -40,3 +40,29 @@ body {
   font-family: Jersey, Pretendard, sans-serif;
   font-size: 16px;
 }
+
+// table
+.table {
+  border-collapse: collapse;
+  box-sizing: content-box;
+
+  &.middle {
+    th,
+    td {
+      vertical-align: middle;
+    }
+  }
+
+  thead {
+    tr {
+      color: var(--c-white);
+      background-color: var(--c-point-bg);
+    }
+  }
+
+  th,
+  td {
+    padding: var(--gap-xs) 4px;
+    border: 1px solid var(--c-point);
+  }
+}
