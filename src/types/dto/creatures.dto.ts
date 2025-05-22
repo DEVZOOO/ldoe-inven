@@ -1,3 +1,8 @@
+/**
+ * @file creatures.dto.ts
+ * @description Creatures 관련 DTO
+ */
+
 export type CreaturesInfo = {
   /**
    * PK
