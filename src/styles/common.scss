@@ -25,14 +25,12 @@
   --fz-m: #{$fz-m};
 }
 
-/*
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #{$c-bg-dark};
     --foreground: #{$c-fg-dark};
   }
 }
-*/
 
 body {
   background: var(--background);
