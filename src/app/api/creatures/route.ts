@@ -1,4 +1,3 @@
-import { NextApiResponse } from "next";
 import { selectAllCreatures } from "@/app/api/creatures/service";
 import { NextRequest, NextResponse } from "next/server";
 import { CreaturesInfo } from "@/types/dto";

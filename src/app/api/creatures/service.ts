@@ -1,5 +1,6 @@
 import { DateFormat, TimeZone } from "@/constants";
 import { exec } from "@/lib/db";
+import { SelectListParamType } from "@/types";
 import { CreaturesInfo } from "@/types/dto";
 
 /**
@@ -8,15 +9,13 @@ import { CreaturesInfo } from "@/types/dto";
 export async function selectAllCreatures({
   page = 1,
   cnt,
-}: {
-  page?: number;
-  cnt: number;
-}) {
+}: SelectListParamType) {
   const startIdx = (page - 1) * cnt,
     endIdx = startIdx + cnt;
   const sql = `
     SELECT 
         CNO AS cno
+        , IMG_URL AS imgUrl
         , NAME AS name
         , NAME_EN AS nameEn
         , HEALTH AS health
