@@ -21,7 +21,7 @@ export async function exec<T>(sql: string, values?: unknown[]) {
     conn = await pool.getConnection();
     console.log(`[SQL] ${sql}`);
     const result = await conn.query(sql, values);
-    console.log(`[RESULT] ${result.length}개`);
+    console.log(`[RESULT] count: ${result.length}`);
     return result as T[];
   } catch (e) {
     console.error(`## FAIL:: ${e}`);
