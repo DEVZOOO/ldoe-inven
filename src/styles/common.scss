@@ -63,6 +63,17 @@ body {
   th,
   td {
     padding: var(--gap-xs) 4px;
-    border: 1px solid var(--c-point);
+    // border-top: 1px solid var(--c-point);
+  }
+
+  tr:not(:last-of-type) {
+    border-bottom: 1px solid var(--c-point);
+  }
+
+  tr {
+    & > td:not(:last-of-type),
+    & > tr:not(:last-of-type) {
+      border-right: 1px solid var(--c-point);
+    }
   }
 }

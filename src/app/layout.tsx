@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-import "@/app/styles/reset.scss";
-import "@/app/styles/typography.scss";
-import "@/app/styles/common.scss";
-import "@/app/styles/globals.css";
+import "@/styles/reset.scss";
+import "@/styles/typography.scss";
+import "@/styles/common.scss";
+import "@/styles/globals.css";
 
 import Header from "@/components/header";
 import Footer from "@/components/footer";
