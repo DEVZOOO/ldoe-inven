@@ -1,25 +1,11 @@
 import mariadb from "mariadb";
 
-console.log(`DB CONFIG ::`, {
-  host: process.env.DB_URL,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  port: Number(process.env.DB_PORT),
-});
-
 const pool = mariadb.createPool({
   host: process.env.DB_URL,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   port: Number(process.env.DB_PORT),
-  // ssl: false,
-  // connectTimeout: 10000,
-  // acquireTimeout: 15000,
-  // ssl: {
-  //   rejectUnauthorized: false,
-  // },
 });
 
 /**
