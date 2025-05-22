@@ -6,8 +6,7 @@ import { useEffect, useState } from "react";
 import { API_URL } from "@/constants/apiUrl";
 import { ApiStatus } from "@/constants/status";
 import { CommonRes } from "@/types/api";
-import { CreaturesInfo } from "@/types/dto";
-import { WeaponsInfo } from "@/types/dto/weapons.dto";
+import { CreaturesInfo, FoodInfo, WeaponsInfo } from "@/types/dto";
 
 import CtgrySection from "@/components/main/ctgry-section";
 
@@ -16,6 +15,9 @@ export default function Home() {
   const [isError, setIsError] = useState(false);
   const [creatures, setCreatures] = useState<CreaturesInfo[]>([]);
   const [weapons, setWeapons] = useState<WeaponsInfo[]>([]);
+  const [weaponsLoading, setWeaponsLoading] = useState(true);
+  const [food, setFood] = useState<FoodInfo[]>([]);
+  const [foodLoading, setFoodLoading] = useState(true);
 
   useEffect(() => {
     const fetchCreatures = async () => {
@@ -48,11 +50,31 @@ export default function Home() {
         }
       } catch (err) {
         console.log(err);
+      } finally {
+        setWeaponsLoading(false);
+      }
+    };
+
+    const fetchFood = async () => {
+      try {
+        const res = await fetch(API_URL.FOOD.LIST(5));
+        const result: CommonRes<FoodInfo[]> = await res.json();
+        if (result.status == ApiStatus.SUCCESS) {
+          const data = result.data;
+          setFood(data!);
+        } else {
+          console.error(result);
+        }
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setFoodLoading(false);
       }
     };
 
     fetchCreatures();
     fetchWeapons();
+    fetchFood();
   }, []);
 
   return (
@@ -86,14 +108,15 @@ export default function Home() {
                       <Image
                         src={v.imgUrl ?? "/file.svg"}
                         alt={v.name}
-                        layout="fill"
+                        fill
                         style={{ objectFit: "contain" }}
                       ></Image>
                     </div>
                   </td>
                   <td>
                     {v.name}
-                    <br></br>({v.nameEn})
+                    <br></br>
+                    {v.nameEn}
                   </td>
                   <td className="text-right">{v.health}</td>
                   <td className="text-right">{v.damage}</td>
@@ -105,6 +128,54 @@ export default function Home() {
       </CtgrySection>
 
       <CtgrySection title="Weapons">
+        {weaponsLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <table className="w-full table text-center middle">
+            <colgroup>
+              <col style={{ width: "60px" }}></col>
+              <col></col>
+              <col style={{ width: "20%" }}></col>
+              <col style={{ width: "15%" }}></col>
+              <col style={{ width: "15%" }}></col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>ICON</th>
+                <th>NAME</th>
+                <th>DAMAGE</th>
+                <th>SPEED</th>
+                <th>DPS</th>
+              </tr>
+            </thead>
+            <tbody className="text-[0.8em] font-Pretendard">
+              {weapons.map((v, i) => (
+                <tr key={v.wno}>
+                  <td>
+                    <Image
+                      src={v.imgUrl ?? "/file.svg"}
+                      alt={v.name}
+                      width={20}
+                      height={20}
+                      style={{ objectFit: "contain" }}
+                    ></Image>
+                  </td>
+                  <td>
+                    {v.name}
+                    <br></br>
+                    {v.nameEn}
+                  </td>
+                  <td className="text-right">{v.damage}</td>
+                  <td className="text-right">{v.speed}</td>
+                  <td className="text-right">{v.dps}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </CtgrySection>
+
+      <CtgrySection title="Food">
         <table className="w-full table text-center middle">
           <colgroup>
             <col style={{ width: "60px" }}></col>
@@ -117,14 +188,14 @@ export default function Home() {
             <tr>
               <th>ICON</th>
               <th>NAME</th>
-              <th>DAMAGE</th>
-              <th>SPEED</th>
-              <th>DPS</th>
+              <th>HEALTH</th>
+              <th>HUNGER</th>
+              <th>THIRST</th>
             </tr>
           </thead>
           <tbody className="text-[0.8em] font-Pretendard">
-            {weapons.map((v, i) => (
-              <tr key={v.wno}>
+            {food.map((v) => (
+              <tr key={v.fno}>
                 <td>
                   <Image
                     src={v.imgUrl ?? "/file.svg"}
@@ -136,25 +207,16 @@ export default function Home() {
                 </td>
                 <td>
                   {v.name}
-                  <br></br>({v.nameEn})
+                  <br></br>
+                  {v.nameEn}
                 </td>
-                <td className="text-right">{v.damage}</td>
-                <td className="text-right">{v.speed}</td>
-                <td className="text-right">{v.dps}</td>
+                <td className="text-right">{v.health}</td>
+                <td className="text-right">{v.hunger}</td>
+                <td className="text-right">{v.thirst}</td>
               </tr>
             ))}
           </tbody>
         </table>
-      </CtgrySection>
-
-      <CtgrySection title="Food">
-        <div>
-          {[1, 2, 3, 4, 5].map((v, i) => (
-            <div key={i}>
-              Food {i}: {v}
-            </div>
-          ))}
-        </div>
       </CtgrySection>
     </div>
   );

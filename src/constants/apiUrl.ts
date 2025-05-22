@@ -5,4 +5,7 @@ export const API_URL = {
   WEAPONS: {
     LIST: (cnt?: number) => `/api/weapons?cnt=${cnt}`,
   },
+  FOOD: {
+    LIST: (cnt?: number) => `/api/food?cnt=${cnt}`,
+  },
 };
