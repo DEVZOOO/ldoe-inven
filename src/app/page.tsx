@@ -180,7 +180,7 @@ export default function Home() {
           <colgroup>
             <col style={{ width: "60px" }}></col>
             <col></col>
-            <col style={{ width: "20%" }}></col>
+            <col style={{ width: "15%" }}></col>
             <col style={{ width: "15%" }}></col>
             <col style={{ width: "15%" }}></col>
           </colgroup>
