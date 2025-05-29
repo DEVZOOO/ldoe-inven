@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { API_URL } from "@/constants/apiUrl";
+import { API_URL } from "@/constants/url";
 import { ApiStatus } from "@/constants/status";
 import { CommonRes } from "@/types/api";
 import { CreaturesInfo, FoodInfo, WeaponsInfo } from "@/types/dto";
@@ -79,6 +79,7 @@ export default function Home() {
 
   return (
     <div className="my-m">
+      {/* 몹 리스트 */}
       <CtgrySection title="Creatures">
         {loading ? (
           <div>Loading...</div>
@@ -127,6 +128,7 @@ export default function Home() {
         )}
       </CtgrySection>
 
+      {/* 무기 리스트 */}
       <CtgrySection title="Weapons">
         {weaponsLoading ? (
           <div>Loading...</div>
@@ -175,48 +177,53 @@ export default function Home() {
         )}
       </CtgrySection>
 
+      {/* 음식 리스트 */}
       <CtgrySection title="Food">
-        <table className="w-full table text-center middle">
-          <colgroup>
-            <col style={{ width: "60px" }}></col>
-            <col></col>
-            <col style={{ width: "15%" }}></col>
-            <col style={{ width: "15%" }}></col>
-            <col style={{ width: "15%" }}></col>
-          </colgroup>
-          <thead>
-            <tr>
-              <th>ICON</th>
-              <th>NAME</th>
-              <th>HEALTH</th>
-              <th>HUNGER</th>
-              <th>THIRST</th>
-            </tr>
-          </thead>
-          <tbody className="text-[0.8em] font-Pretendard">
-            {food.map((v) => (
-              <tr key={v.fno}>
-                <td>
-                  <Image
-                    src={v.imgUrl ?? "/file.svg"}
-                    alt={v.name}
-                    width={20}
-                    height={20}
-                    style={{ objectFit: "contain" }}
-                  ></Image>
-                </td>
-                <td>
-                  {v.name}
-                  <br></br>
-                  {v.nameEn}
-                </td>
-                <td className="text-right">{v.health}</td>
-                <td className="text-right">{v.hunger}</td>
-                <td className="text-right">{v.thirst}</td>
+        {foodLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <table className="w-full table text-center middle">
+            <colgroup>
+              <col style={{ width: "60px" }}></col>
+              <col></col>
+              <col style={{ width: "15%" }}></col>
+              <col style={{ width: "15%" }}></col>
+              <col style={{ width: "15%" }}></col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>ICON</th>
+                <th>NAME</th>
+                <th>HEALTH</th>
+                <th>HUNGER</th>
+                <th>THIRST</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="text-[0.8em] font-Pretendard">
+              {food.map((v) => (
+                <tr key={v.fno}>
+                  <td>
+                    <Image
+                      src={v.imgUrl ?? "/file.svg"}
+                      alt={v.name}
+                      width={20}
+                      height={20}
+                      style={{ objectFit: "contain" }}
+                    ></Image>
+                  </td>
+                  <td>
+                    {v.name}
+                    <br></br>
+                    {v.nameEn}
+                  </td>
+                  <td className="text-right">{v.health}</td>
+                  <td className="text-right">{v.hunger}</td>
+                  <td className="text-right">{v.thirst}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </CtgrySection>
     </div>
   );

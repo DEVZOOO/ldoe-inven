@@ -10,9 +10,7 @@ export async function selectAllCreatures({
   page = 1,
   cnt,
 }: SelectListParamType) {
-  const startIdx = (page - 1) * cnt,
-    endIdx = startIdx + cnt;
-  const sql = `
+  let sql = `
     SELECT 
         CNO AS cno
         , IMG_URL AS imgUrl
@@ -27,7 +25,13 @@ export async function selectAllCreatures({
         , DATE_FORMAT(CONVERT_TZ(UPD_DT, '${TimeZone.UTC}', '${TimeZone.SEOUL}'), '${DateFormat.YYYY_MM_DD_HH_II_SS}') AS updDt
     FROM CREATURES 
     ORDER BY CNO DESC 
-    LIMIT ${startIdx}, ${endIdx}`;
-  const result = await exec<CreaturesInfo>(sql);
+    `;
+  if (cnt != 0) {
+    const startIdx = (page - 1) * cnt,
+      endIdx = startIdx + cnt;
+    sql += `LIMIT ${startIdx}, ${endIdx}`;
+  }
+
+  const result = await exec<CreaturesInfo[]>(sql);
   return result;
 }

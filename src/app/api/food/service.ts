@@ -24,6 +24,6 @@ export async function selectAllFood({ page = 1, cnt }: SelectListParamType) {
     FROM FOOD 
     ORDER BY FNO DESC 
     LIMIT ${startIdx}, ${endIdx}`;
-  const result = await exec<FoodInfo>(sql);
+  const result = await exec<FoodInfo[]>(sql);
   return result;
 }

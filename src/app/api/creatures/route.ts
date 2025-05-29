@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
 
   try {
     const searchParams = req.nextUrl.searchParams;
-    const cnt = Number(searchParams.get("cnt")) ?? 10;
+    const cnt = Number(searchParams.get("cnt") ?? 0);
     const data = await selectAllCreatures({ cnt });
     result = {
       status: ApiStatus.SUCCESS,

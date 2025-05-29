@@ -26,6 +26,6 @@ export async function selectAllWeapons({ page = 1, cnt }: SelectListParamType) {
         FROM WEAPONS
         ORDER BY WNO DESC 
         LIMIT ${startIdx}, ${endIdx}`;
-  const result = await exec<WeaponsInfo>(sql);
+  const result = await exec<WeaponsInfo[]>(sql);
   return result;
 }
