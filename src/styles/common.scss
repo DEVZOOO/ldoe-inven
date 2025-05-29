@@ -23,6 +23,12 @@
   /* 폰트 사이즈 */
   --fz-s: #{$fz-s};
   --fz-m: #{$fz-m};
+  --fz-l: #{$fz-l};
+
+  /* 폰트 두께 */
+  --fw-normal: #{$fw-normal};
+  --fw-medium: #{$fw-medium};
+  --fw-bold: #{$fw-bold};
 }
 
 @media (prefers-color-scheme: dark) {
