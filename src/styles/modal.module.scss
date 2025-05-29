@@ -1,0 +1,42 @@
+/* 모달 공통 css */
+
+// modal
+.modal-dim {
+  width: 100dvw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--background);
+  border-radius: var(--radius-s);
+  width: 32dvw;
+  box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.2);
+
+  & > div {
+    padding: var(--gap-s);
+  }
+}
+.modal-title {
+  font-size: var(--fz-l);
+  font-weight: var(--fw-medium);
+  border-bottom: 1px solid var(--foreground);
+}
+
+.modal-cont {
+  padding-top: var(--gap-xs);
+  padding-bottom: var(--gap-xs);
+  min-height: 20dvh;
+}
+
+.modal-footer {
+  text-align: right;
+  border-top: 1px solid var(--foreground);
+}
