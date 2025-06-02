@@ -1,8 +1,11 @@
 @use "variables" as *;
+@use "mixins" as *;
 
 :root {
   --background: #{$c-bg};
   --foreground: #{$c-fg};
+
+  --w-mob: #{$w-mob};
 
   --gap-xs: #{$gap-xs};
   --gap-s: #{$gap-s};

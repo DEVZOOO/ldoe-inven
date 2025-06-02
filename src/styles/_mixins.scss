@@ -1,0 +1,14 @@
+/* mixin, extends들 */
+
+@use "variables" as *;
+
+@mixin desktop {
+  @media (min-width: $w-mob) {
+    @content;
+  }
+}
+@mixin mob {
+  @media (max-width: $w-mob) {
+    @content;
+  }
+}
