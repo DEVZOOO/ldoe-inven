@@ -6,6 +6,20 @@ type CtgrySectionType = {
   children?: React.ReactNode;
 };
 
+const Title = styled.div`
+  padding: var(--gap-xs);
+`;
+
+const MoreBtn = styled.button`
+  margin: var(--gap-xs) 4px;
+  padding: 2px 4px;
+  color: #31cbbe;
+  background-color: var(--c-black);
+  border: 1px solid #31cbbe;
+  border-radius: var(--radius-s);
+  font-size: 0.8em;
+`;
+
 export default function CtgrySection({
   title,
   cls,
@@ -21,17 +35,3 @@ export default function CtgrySection({
     </section>
   );
 }
-
-const Title = styled.div`
-  padding: var(--gap-xs);
-`;
-
-const MoreBtn = styled.button`
-  margin: var(--gap-xs) 4px;
-  padding: 2px 4px;
-  color: #31cbbe;
-  background-color: var(--c-black);
-  border: 1px solid #31cbbe;
-  border-radius: var(--radius-s);
-  font-size: 0.8em;
-`;
