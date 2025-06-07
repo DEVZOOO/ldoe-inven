@@ -17,3 +17,4 @@
 | tailwindcss | `4.0`    |
 | sass        | `1.89.0` |
 | fontawesome | `6.7.2`  |
+| bcrypt      | `6.0.0`  |
