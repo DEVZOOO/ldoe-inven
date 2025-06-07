@@ -14,7 +14,7 @@ const pool = mariadb.createPool({
  * @param values parameter
  * @returns result
  */
-export async function exec<T>(sql: string, values?: unknown[]) {
+export async function exec<T>(sql: string, values?: any[]) {
   let conn;
 
   try {
@@ -22,7 +22,7 @@ export async function exec<T>(sql: string, values?: unknown[]) {
     console.log(`[SQL] ${sql}`);
     const result = await conn.query(sql, values);
     console.log(`[RESULT] count: ${result.length}`);
-    return result as T[];
+    return result as T;
   } catch (e) {
     console.error(`## FAIL:: ${e}`);
     throw e;
