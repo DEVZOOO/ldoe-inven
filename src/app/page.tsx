@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-import { API_URL } from "@/constants/url";
-import { ApiStatus } from "@/constants/status";
+import { API_URL } from "@/constants";
+import { ApiStatus } from "@/constants";
 import { CommonRes } from "@/types/api";
 import { CreaturesInfo, FoodInfo, WeaponsInfo } from "@/types/dto";
 
@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     const fetchCreatures = async () => {
       try {
-        const res = await fetch(API_URL.CREATURES.LIST(5));
+        const res = await fetch(API_URL.CREATURES.LIST({cnt: 5}));
         const result: CommonRes<CreaturesInfo[]> = await res.json();
         if (result.status == ApiStatus.SUCCESS) {
           const data = result.data;
