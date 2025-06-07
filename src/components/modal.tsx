@@ -18,10 +18,10 @@ interface ParamType {
 /**
  * 공통 모달
  */
-export default function Modal({
+export function Modal({
   title,
-  showXBtn = false,
-  showCloseBtn = true,
+  showXBtn = true,
+  showCloseBtn = false,
   width,
   children,
 }: ParamType) {
@@ -45,11 +45,15 @@ export default function Modal({
         )}
         <div className={styles["modal-cont"]}>{children}</div>
         {showCloseBtn && (
-          <div className={styles["modal-footer"]}>
+          <ModalFooter>
             <Button onClick={() => router.back()}>CLOSE</Button>
-          </div>
+          </ModalFooter>
         )}
       </div>
     </div>
   );
+}
+
+export function ModalFooter({ children }: { children?: React.ReactNode }) {
+  return <div className={styles["modal-footer"]}>{children}</div>;
 }

@@ -1,5 +1,7 @@
 /* 모달 공통 css */
 
+@use "mixins" as *;
+
 // modal
 .modal-dim {
   width: 100dvw;
@@ -11,13 +13,19 @@
 }
 
 .modal {
+  @include desktop {
+    width: calc(var(--w-mob) * 0.8);
+  }
+  @include mob {
+    width: 80dvw;
+  }
+
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--background);
   border-radius: var(--radius-s);
-  width: 32dvw;
   box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.2);
 
   & > div {
