@@ -1,5 +1,6 @@
-import { VIEW_URL } from "@/constants/index";
 import Link from "next/link";
+
+import { VIEW_URL } from "@/constants";
 
 export default function AdminInit() {
   return (
@@ -10,7 +11,7 @@ export default function AdminInit() {
         <li>
           항목 관리
           <ul>
-            <li>몹 관리</li>
+            <li><Link href={VIEW_URL.ADMIN.ITEMS.CREATURES.LIST}>몹 관리</Link></li>
             <li>무기 관리</li>
             <li>음식 관리</li>
           </ul>

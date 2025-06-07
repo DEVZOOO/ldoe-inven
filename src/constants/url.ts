@@ -1,6 +1,9 @@
+import {SelectCreaturesListParamType} from "@/types";
+import {convertToQueryString} from "@/utils";
+
 export const API_URL = {
   CREATURES: {
-    LIST: (cnt?: number) => `/api/creatures` + (cnt ? `?cnt=${cnt}` : ""),
+    LIST: (param: SelectCreaturesListParamType) => `/api/creatures` + convertToQueryString(param),
   },
   WEAPONS: {
     LIST: (cnt?: number) => `/api/weapons` + (cnt ? `?cnt=${cnt}` : ""),
@@ -9,12 +12,19 @@ export const API_URL = {
     LIST: (cnt?: number) => `/api/food` + (cnt ? `?cnt=${cnt}` : ""),
   },
   ADMIN: {
-    INSERT: "/api/admin/user",
+    USERS: {
+      INSERT: "/api/admin/user",
+    },
   },
 };
 
 export const VIEW_URL = {
   ADMIN: {
+    ITEMS: {
+      CREATURES: {
+        LIST: `/admin/creatures`,
+      },
+    },
     USERS: {
       LIST: `/admin/users`,
       REGIST: `/admin/users/regist`,
