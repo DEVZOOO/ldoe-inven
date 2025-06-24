@@ -4,14 +4,14 @@ import {CommonRes, CreaturesInfo} from "@/types";
 import {ApiStatus} from "@/constants";
 
 type getParams = {
-    params: { cno: string }
+    params: Promise<{ cno: string }>
 };
 
 /**
  * 몹 상세정보 조회
  */
 export async function GET(req: NextRequest, ctx: getParams) {
-    const cno = parseInt(ctx.params.cno, 10);
+    const cno = parseInt((await ctx.params).cno, 10);
 
     let result: CommonRes<CreaturesInfo>;
 
