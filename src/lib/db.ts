@@ -20,6 +20,7 @@ export async function exec<T>(sql: string, values?: any[]) {
   try {
     conn = await pool.getConnection();
     console.log(`[SQL] ${sql}`);
+    console.log(`[PARAMS] ${values}`);
     const result = await conn.query(sql, values);
     console.log(`[RESULT] count: ${result.length}`);
     return result as T;
