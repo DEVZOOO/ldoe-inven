@@ -4,6 +4,7 @@ import {convertToQueryString} from "@/utils";
 export const API_URL = {
   CREATURES: {
     LIST: (param: SelectCreaturesListParamType) => `/api/creatures` + convertToQueryString(param),
+    DETAIL: (cno: number) => `/api/creatures/${cno}`,
   },
   WEAPONS: {
     LIST: (cnt?: number) => `/api/weapons` + (cnt ? `?cnt=${cnt}` : ""),
@@ -23,6 +24,7 @@ export const VIEW_URL = {
     ITEMS: {
       CREATURES: {
         LIST: `/admin/creatures`,
+        DETAIL: (cno: number) => `/admin/creatures/${cno}`,
       },
     },
     USERS: {
