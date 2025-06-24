@@ -8,6 +8,7 @@ type CtgrySectionType = {
 
 const Title = styled.div`
   padding: var(--gap-xs);
+    font-size: var(--fz-m);
 `;
 
 const MoreBtn = styled.button`
