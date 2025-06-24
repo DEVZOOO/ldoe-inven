@@ -22,7 +22,7 @@ export default function AdminItemsCreatures() {
       if (result.status == ApiStatus.SUCCESS) {
         const data = result.data;
         setList((prev) => [...prev, ...data!]);
-        setPage((prev) => prev + 1)
+        // setPage((prev) => prev + 1);
       } else {
         console.error(result);
       }
@@ -31,9 +31,11 @@ export default function AdminItemsCreatures() {
     }
   }, [page]);
 
+  // TODO - page 업데이트
   useEffect(() => {
+    console.log("useEffect");
     fetchCreaturesList();
-  }, [page]);
+  }, []);
 
   return (
     <>
