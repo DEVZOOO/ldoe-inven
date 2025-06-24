@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import {GoogleAnalytics, GoogleTagManager} from "@next/third-parties/google";
 
 import "@/styles/reset.scss";
 import "@/styles/typography.scss";
@@ -24,6 +25,8 @@ export default function RootLayout({
         <Header></Header>
         <div className="px-s min-h-[84dvh]">{children}</div>
         <Footer></Footer>
+        <GoogleAnalytics gaId={process.env.GA_ID as string}></GoogleAnalytics>
+        <GoogleTagManager gtmId={process.env.GTM_ID as string}></GoogleTagManager>
       </body>
     </html>
   );
